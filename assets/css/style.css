@@ -12,3 +12,41 @@
 	margin: auto;
 }
 
+
+.row { 
+	display: :flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+ 
+ }
+ .row::after{
+ 	content: "";
+ 	clear: both;
+ }
+#forwardButton {
+	display: block;
+	width:10%;
+	height:10%;
+	margin-bottom: 10px;
+	margin-left: 5%;
+}
+
+
+#backwardButton {
+	display: block;
+	width:10%;
+	height:10%;
+	margin-left: 5%;
+}
+
+#leftButton {
+	width:10%;
+	height:10%;
+	margin-bottom: 10px;
+}
+
+
+#rightButton {
+	width:10%;
+	height:10%;
+}

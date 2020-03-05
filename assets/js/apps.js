@@ -25,7 +25,10 @@ function connectToDevice() {
   .then(service => {
     log('Getting Characteristic...');
     s =  service.getCharacteristic(characteristicUuid);
+    console.log("Setting up the buttons!")
+    setUpAllButtons()
   })
+  
 
 }
 
@@ -47,5 +50,55 @@ async function flip() {
 	})
 
 
+}
+
+function setUpAllButtons() {
+  var forwardBtn = document.getElementById("forwardButton");
+  var backwardBtn = document.getElementById("backwardButton");
+  var leftBtn = document.getElementById("leftButton");
+  var rightBtn = document.getElementById("rightButton");
+  setUpButton(forwardBtn, 1)
+  setUpButton(backwardBtn, 2)
+  setUpButton(leftBtn, 3)
+  setUpButton(rightBtn, 4)
+
+}
+
+
+function setUpButton(btn, value_to_write){
+  console.log(btn)
+  btn.addEventListener('mousedown', async function(e){
+    let result = await s
+    console.log(result)
+    try{
+      promise = result.readValue()
+      Promise.all([promise]).then(function(values) {
+        try{
+          var code = values[0].getInt8(0)
+          encoder = new TextEncoder('utf-8');
+          result.writeValue(encoder.encode(value_to_write))
+        }
+        catch(err) { 
+          console.log("Stopping robot")
+          encoder = new TextEncoder('utf-8');
+          result.writeValue(encoder.encode(0))
+        }
+
+      })
+    }
+    catch(err) { 
+      console.log("Stopping robot")
+      result.writeValue(encoder.encode(0))
+    }
+
+
+  })
+
+  btn.addEventListener('mouseup',async function(e){
+    let result = await s
+    console.log("Stopping robot")
+    encoder = new TextEncoder('utf-8');
+    result.writeValue(encoder.encode(0))
+  })
 }
 
