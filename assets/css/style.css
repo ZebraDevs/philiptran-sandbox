@@ -45,8 +45,14 @@
 	margin-bottom: 10px;
 }
 
-
 #rightButton {
 	width:10%;
 	height:10%;
 }
+
+#spdButton { 
+	width:5%;
+	height:5%;
+	margin-left:3%;
+}
+

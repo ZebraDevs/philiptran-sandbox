@@ -5,9 +5,12 @@ function log(str) {
 }
 
 var s;
+var spd = 0.5;
+var s2;
+
 function connectToDevice() {
   console.log(navigator.bluetooth)
-  serviceUuid = '4FAFC201-1FB5-459E-8FCC-C5C9C331914B'
+  serviceUuid = 'ac370e00-7c8c-4c47-917d-061425f3381b'
   characteristicUuid = 'beb5483e-36e1-4688-b7f5-ea07361b26a8'
   log('Requesting Bluetooth Device...');
   options = {}
@@ -24,13 +27,42 @@ function connectToDevice() {
   })
   .then(service => {
     log('Getting Characteristic...');
-    s =  service.getCharacteristic(characteristicUuid);
     console.log("Setting up the buttons!")
     setUpAllButtons()
+    return service.getCharacteristic(characteristicUuid)
   })
-  
+  .then(characteristic => {
+    s = characteristic;
+    s.addEventListener('characteristicvaluechanged',
+        handleCharacteristicChange);
+    
+    characteristic.properties.notify = true;
+    s.properties.notify = true;
+    console.log(s)
+    console.log(characteristic)
+
+
+
+  })
 
 }
+
+function onStartNotificationsButtonClick() {
+  log('Starting Notifications...');
+  s.startNotifications()
+  .then(_ => {
+    log('> Notifications started');
+  })
+  .catch(error => {
+    log('Argh! ' + error);
+  });
+}
+
+async function handleCharacteristicChange(event) {
+  let result = await event.target.value;
+  log('> NEW VAL: ' + arrayBufferToString(result['buffer']))
+}
+
 
 async function flip() {
 	let result = await s
@@ -101,4 +133,40 @@ function setUpButton(btn, value_to_write){
     result.writeValue(encoder.encode(0))
   })
 }
+
+async function incSpeed() {
+  print("spd up")
+  let result = await s
+  encoder = new TextEncoder('utf-8');
+  result.writeValue(encoder.encode(5))
+  spd += 0.2
+  var txt = document.getElementById("spd");
+  txt.textContent="Spd: " + Math.round(spd * 100) / 100;
+}
+async function decSpeed() {
+  spd -= 0.2
+  var txt = document.getElementById("spd");
+  txt.textContent="Spd: " + Math.round(spd * 100) / 100;
+}
+
+
+
+
+function arrayBufferToString(buffer){
+    var arr = new Uint8Array(buffer);
+    var str = String.fromCharCode.apply(String, arr);
+    if(/[\u0080-\uffff]/.test(str)){
+        throw new Error("this string seems to contain (still encoded) multibytes");
+    }
+    return str;
+}
+
+
+// if (typeof(w) == "undefined") {
+//   w = new Worker("web_worker.js");
+// }
+// w.addEventListener('message', function(e) {
+//   console.log('Worker said: ', e.data);
+// }, false);
+// console.log(w)
 
