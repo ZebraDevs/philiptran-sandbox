@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/phillz/Documents/app_controller/catkin_ws/src/app_controller/src/app_controller.cc
+iostream
+-
+serial/serial.h
+/home/phillz/Documents/app_controller/catkin_ws/src/app_controller/src/serial/serial.h
+
+/home/phillz/Documents/app_controller/catkin_ws/src/serial/include/serial/serial.h
+limits
+-
+vector
+-
+string
+-
+cstring
+-
+sstream
+-
+exception
+-
+stdexcept
+-
+serial/v8stdint.h
+-
+
+/home/phillz/Documents/app_controller/catkin_ws/src/serial/include/serial/v8stdint.h
+stddef.h
+-
+stdio.h
+-
+stdint.h
+-
+

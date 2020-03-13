@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="assets/js/pixi.min.js"></script>
+        <link rel="stylesheet", src="assets/css/style.css">
+        <script src="assets/js/apps.js"></script>
+    </head>
+
+    <body>
+        <button id="bluetoothButton" onclick=connectToDevice()> Connect </button><br>
+        <script>
+            // set application
+            let Application = PIXI.Application,
+            loader = PIXI.loader,
+            resources = PIXI.loader.resources
+            Sprite = PIXI.Sprite
+            let app = new Application({width: 700, height: 256});
+            app.renderer.autoResize = true;
+            app.renderer.backgroundColor = 0x895044;
+            document.body.appendChild(app.view);
+
+            loader 
+            .add("assets/images/button_unpressed_red.png")
+            .add("assets/images/button_pressed_red.png")
+            .add("assets/images/button_unpressed_blue.png")
+            .add("assets/images/button_pressed_blue.png")
+            .add("assets/images/button_unpressed_yellow.png")
+            .add("assets/images/button_pressed_yellow.png")
+            .load(setup);
+
+            function setup() {
+                // 1 -> red -> forward
+                // 2 -> blue -> left 
+                // 3 -> blue -> right
+
+                red_button_textures = [resources["assets/images/button_unpressed_red.png"].texture, resources["assets/images/button_pressed_red.png"].texture]
+                blue_button_textures = [resources["assets/images/button_unpressed_blue.png"].texture, resources["assets/images/button_pressed_blue.png"].texture]
+                setupButtons(app, red_button_textures, {'x':500, 'y':50}, 1)
+                setupButtons(app, blue_button_textures, {'x': 50, 'y': 50}, 2)
+                setupButtons(app, blue_button_textures, {'x': 250, 'y': 50}, 3)
+                
+            }
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,7 @@
+#joystick_area{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+<style>* {padding: 0; margin: 0}</style>

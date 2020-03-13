@@ -1,0 +1,8 @@
+prefix=/home/phillz/Documents/app_controller/catkin_ws/devel
+
+Name: test
+Description: Description of test
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

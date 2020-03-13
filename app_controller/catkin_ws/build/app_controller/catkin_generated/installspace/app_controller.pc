@@ -1,0 +1,8 @@
+prefix=/home/phillz/Documents/app_controller/catkin_ws/install
+
+Name: app_controller
+Description: Description of app_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

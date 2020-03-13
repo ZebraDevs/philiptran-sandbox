@@ -1,0 +1,2 @@
+serial:test
+-DCATKIN_DEVEL_PREFIX=/home/phillz/Documents/app_controller/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/phillz/Documents/app_controller/catkin_ws/install -G Unix Makefiles

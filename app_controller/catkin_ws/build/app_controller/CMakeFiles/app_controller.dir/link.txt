@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/app_controller.dir/src/app_controller.cc.o  -o /home/phillz/Documents/app_controller/catkin_ws/devel/lib/app_controller/app_controller 
