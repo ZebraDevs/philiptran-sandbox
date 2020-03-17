@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/controller.cc
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/controller.cc
 iostream
 -
 string
@@ -16,27 +16,13 @@ unistd.h
 cstdint
 -
 serial/serial.h
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/serial/serial.h
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/serial/serial.h
 ros/ros.h
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/ros/ros.h
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/ros/ros.h
 geometry_msgs/Twist.h
 -
-laser_data_stream.h
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/laser_data_stream.h
 
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/laser_data_stream.h
-iostream
--
-string
--
-serial/serial.h
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/serial/serial.h
-ros/ros.h
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/ros/ros.h
-sensor_msgs/LaserScan.h
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/sensor_msgs/LaserScan.h
-
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/include/serial/serial.h
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/include/serial/serial.h
 limits
 -
 vector
@@ -54,7 +40,7 @@ stdexcept
 serial/v8stdint.h
 -
 
-/home/phillz/Documents/app_controller/catkin_ws/src/serial/include/serial/v8stdint.h
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/include/serial/v8stdint.h
 stddef.h
 -
 stdio.h
@@ -743,40 +729,6 @@ ros/forwards.h
 /opt/ros/melodic/include/ros/ros/forwards.h
 
 /opt/ros/melodic/include/rosconsole/macros_generated.h
-
-/opt/ros/melodic/include/sensor_msgs/LaserScan.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-std_msgs/Header.h
--
-
-/opt/ros/melodic/include/std_msgs/Header.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
 
 /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 ros/macros.h

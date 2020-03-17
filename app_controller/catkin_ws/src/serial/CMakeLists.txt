@@ -70,6 +70,11 @@ add_dependencies(controller ${PROJECT_NAME})
 target_link_libraries(controller ${PROJECT_NAME})
 target_link_libraries(controller ${catkin_LIBRARIES})
 
+add_executable(stream_laser app_controller/laser_data_stream.cc)
+add_dependencies(stream_laser ${PROJECT_NAME})
+target_link_libraries(stream_laser ${PROJECT_NAME})
+target_link_libraries(stream_laser ${catkin_LIBRARIES})
+
 ## Include headers
 include_directories(include)
 include_directories(include ${catkin_INCLUDE_DIRS})

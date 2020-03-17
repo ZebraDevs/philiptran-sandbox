@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/phillz/Documents/app_controller/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/phillz/Documents/app_controller/catkin_ws/build
+CMAKE_BINARY_DIR = /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phillz/Documents/app_controller/catkin_ws/build/CMakeFiles /home/phillz/Documents/app_controller/catkin_ws/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/CMakeFiles /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/phillz/Documents/app_controller/catkin_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -283,6 +283,19 @@ gtest: cmake_check_build_system
 gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named stream_laser
+
+# Build rule for target.
+stream_laser: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stream_laser
+.PHONY : stream_laser
+
+# fast build rule for target.
+stream_laser/fast:
+	$(MAKE) -f serial/CMakeFiles/stream_laser.dir/build.make serial/CMakeFiles/stream_laser.dir/build
+.PHONY : stream_laser/fast
 
 #=============================================================================
 # Target rules for targets named serial
@@ -748,6 +761,7 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... stream_laser"
 	@echo "... serial"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"

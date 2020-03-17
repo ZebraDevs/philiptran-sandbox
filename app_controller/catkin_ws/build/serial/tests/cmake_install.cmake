@@ -1,8 +1,8 @@
-# Install script for directory: /home/phillz/Documents/app_controller/catkin_ws/src/serial/tests
+# Install script for directory: /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/phillz/Documents/app_controller/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

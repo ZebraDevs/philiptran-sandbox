@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/phillz/Documents/app_controller/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/phillz/Documents/app_controller/catkin_ws/build
+CMAKE_BINARY_DIR = /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include serial/CMakeFiles/controller.dir/depend.make
@@ -58,17 +58,17 @@ include serial/CMakeFiles/controller.dir/progress.make
 include serial/CMakeFiles/controller.dir/flags.make
 
 serial/CMakeFiles/controller.dir/app_controller/controller.cc.o: serial/CMakeFiles/controller.dir/flags.make
-serial/CMakeFiles/controller.dir/app_controller/controller.cc.o: /home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/controller.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/phillz/Documents/app_controller/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object serial/CMakeFiles/controller.dir/app_controller/controller.cc.o"
-	cd /home/phillz/Documents/app_controller/catkin_ws/build/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/app_controller/controller.cc.o -c /home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/controller.cc
+serial/CMakeFiles/controller.dir/app_controller/controller.cc.o: /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/controller.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object serial/CMakeFiles/controller.dir/app_controller/controller.cc.o"
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/controller.dir/app_controller/controller.cc.o -c /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/controller.cc
 
 serial/CMakeFiles/controller.dir/app_controller/controller.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/controller.dir/app_controller/controller.cc.i"
-	cd /home/phillz/Documents/app_controller/catkin_ws/build/serial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/controller.cc > CMakeFiles/controller.dir/app_controller/controller.cc.i
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/controller.cc > CMakeFiles/controller.dir/app_controller/controller.cc.i
 
 serial/CMakeFiles/controller.dir/app_controller/controller.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/controller.dir/app_controller/controller.cc.s"
-	cd /home/phillz/Documents/app_controller/catkin_ws/build/serial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/phillz/Documents/app_controller/catkin_ws/src/serial/app_controller/controller.cc -o CMakeFiles/controller.dir/app_controller/controller.cc.s
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial/app_controller/controller.cc -o CMakeFiles/controller.dir/app_controller/controller.cc.s
 
 serial/CMakeFiles/controller.dir/app_controller/controller.cc.o.requires:
 
@@ -88,34 +88,34 @@ controller_OBJECTS = \
 # External object files for target controller
 controller_EXTERNAL_OBJECTS =
 
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: serial/CMakeFiles/controller.dir/app_controller/controller.cc.o
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: serial/CMakeFiles/controller.dir/build.make
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /home/phillz/Documents/app_controller/catkin_ws/devel/lib/libserial.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libroscpp.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librosconsole.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librostime.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libcpp_common.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller: serial/CMakeFiles/controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/phillz/Documents/app_controller/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller"
-	cd /home/phillz/Documents/app_controller/catkin_ws/build/serial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/controller.dir/link.txt --verbose=$(VERBOSE)
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: serial/CMakeFiles/controller.dir/app_controller/controller.cc.o
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: serial/CMakeFiles/controller.dir/build.make
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/libserial.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libroscpp.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librosconsole.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/librostime.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /opt/ros/melodic/lib/libcpp_common.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller: serial/CMakeFiles/controller.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller"
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-serial/CMakeFiles/controller.dir/build: /home/phillz/Documents/app_controller/catkin_ws/devel/lib/serial/controller
+serial/CMakeFiles/controller.dir/build: /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel/lib/serial/controller
 
 .PHONY : serial/CMakeFiles/controller.dir/build
 
@@ -124,10 +124,10 @@ serial/CMakeFiles/controller.dir/requires: serial/CMakeFiles/controller.dir/app_
 .PHONY : serial/CMakeFiles/controller.dir/requires
 
 serial/CMakeFiles/controller.dir/clean:
-	cd /home/phillz/Documents/app_controller/catkin_ws/build/serial && $(CMAKE_COMMAND) -P CMakeFiles/controller.dir/cmake_clean.cmake
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial && $(CMAKE_COMMAND) -P CMakeFiles/controller.dir/cmake_clean.cmake
 .PHONY : serial/CMakeFiles/controller.dir/clean
 
 serial/CMakeFiles/controller.dir/depend:
-	cd /home/phillz/Documents/app_controller/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/phillz/Documents/app_controller/catkin_ws/src /home/phillz/Documents/app_controller/catkin_ws/src/serial /home/phillz/Documents/app_controller/catkin_ws/build /home/phillz/Documents/app_controller/catkin_ws/build/serial /home/phillz/Documents/app_controller/catkin_ws/build/serial/CMakeFiles/controller.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial/CMakeFiles/controller.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : serial/CMakeFiles/controller.dir/depend
 

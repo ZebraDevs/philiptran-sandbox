@@ -1,4 +1,4 @@
-prefix=/home/phillz/Documents/app_controller/catkin_ws/install
+prefix=/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/install
 
 Name: serial
 Description: Description of serial

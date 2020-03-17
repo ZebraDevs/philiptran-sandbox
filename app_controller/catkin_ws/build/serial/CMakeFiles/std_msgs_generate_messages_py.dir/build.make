@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/phillz/Documents/app_controller/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/phillz/Documents/app_controller/catkin_ws/build
+CMAKE_BINARY_DIR = /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build
 
 # Utility rule file for std_msgs_generate_messages_py.
 
@@ -63,10 +63,10 @@ serial/CMakeFiles/std_msgs_generate_messages_py.dir/build: std_msgs_generate_mes
 .PHONY : serial/CMakeFiles/std_msgs_generate_messages_py.dir/build
 
 serial/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	cd /home/phillz/Documents/app_controller/catkin_ws/build/serial && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : serial/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 serial/CMakeFiles/std_msgs_generate_messages_py.dir/depend:
-	cd /home/phillz/Documents/app_controller/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/phillz/Documents/app_controller/catkin_ws/src /home/phillz/Documents/app_controller/catkin_ws/src/serial /home/phillz/Documents/app_controller/catkin_ws/build /home/phillz/Documents/app_controller/catkin_ws/build/serial /home/phillz/Documents/app_controller/catkin_ws/build/serial/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/src/serial /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial /home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/build/serial/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : serial/CMakeFiles/std_msgs_generate_messages_py.dir/depend
 

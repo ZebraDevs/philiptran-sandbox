@@ -23,10 +23,26 @@ function connectToDevice() {
     .then(_characteristic => {
         log("getting characteristic")
         characteristic = _characteristic;
+        characteristic.startNotifications()
+        characteristic.addEventListener('characteristicvaluechanged',
+        handleChange);
         console.log(characteristic)
     })
 }
 
+function arrayBufferToString(buffer){
+    var arr = new Uint8Array(buffer);
+    var str = String.fromCharCode.apply(String, arr);
+    if(/[\u0080-\uffff]/.test(str)){
+        throw new Error("this string seems to contain (still encoded) multibytes");
+    }
+    return str;
+}
+
+function handleChange(event) { 
+    let msg = event.target.value.buffer
+    console.log(arrayBufferToString(msg));
+}
 
 async function setupButtons(app, textures,pos, to_write) {
 
