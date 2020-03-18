@@ -1,2 +1,0 @@
-serial
--DCATKIN_DEVEL_PREFIX=/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/phillz/Documents/philiptran-sandbox/app_controller/catkin_ws/install -G Unix Makefiles
