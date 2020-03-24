@@ -1,6 +1,8 @@
 
 var UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 var characteristic;
+var n = 0
+var result;
 
 function log(x) {
     console.log(x)
@@ -40,8 +42,19 @@ function arrayBufferToString(buffer){
 }
 
 function handleChange(event) { 
-    let msg = event.target.value.buffer
-    console.log(arrayBufferToString(msg));
+    // let msg = event.target.value.buffer
+    // console.log(arrayBufferToString(msg));
+    console.log("triggered")
+    if(n > result.length){
+        console.log("done")
+        console.log(result.length)
+        process("1");
+        return
+    }
+
+    console.log("NEW_STR: " + result);
+    process(result.substring(n, n + 100));
+    n += 100;
 }
 
 async function setupButtons(app, textures,pos, to_write) {

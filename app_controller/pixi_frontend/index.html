@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="assets/js/pixi.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.1/pixi.min.js"></script>
         <link rel="stylesheet", src="assets/css/style.css">
         <script src="assets/js/helper_functions.js"></script>
     </head>
@@ -9,9 +9,9 @@
         <button id="bluetoothButton" onclick=connectToDevice()> Connect </button><br>
         <script>
             // set application
-            let Application = PIXI.Application,
-            loader = PIXI.loader,
-            resources = PIXI.loader.resources
+            let Application = PIXI.Application
+            let loader = PIXI.loader
+            let resources = PIXI.loader.resources
             Sprite = PIXI.Sprite
             let app = new Application({width: 700, height: 256});
             app.renderer.autoResize = true;
@@ -41,6 +41,106 @@
             }
         </script>
 
+
+        <!-- The follow is to test sending files over bluetooth. No need to review! -->
+        <script type='text/javascript'>
+
+    function loadFile() {
+        var input, file, fr;
+
+        if (typeof window.FileReader !== 'function') {
+            bodyAppend("p", "The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('fileinput');
+        if (!input) {
+            bodyAppend("p", "Um, couldn't find the fileinput element.");
+        }
+        else if (!input.files) {
+            bodyAppend("p", "This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            bodyAppend("p", "Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = receivedText;
+            fr.readAsText(file);
+        }
+
+        function receivedText() {
+            showResult(fr, "Text");
+
+            // fr = new FileReader();
+            // fr.onload = receivedBinary;
+            // fr.readAsBinaryString(file);
+            // characteristic.writeValue(receivedBinary);
+        }
+
+        // function receivedBinary() {
+        //     showResult(fr, "Binary");
+        // }
+    }
+
+    function showResult(fr, label) {
+        var markup, result, n, aByte, byteStr;
+        var bin_str;
+        markup = [];
+        result = fr.result;
+        for (n = 0; n < result.length; ++n) {
+            aByte = result.charCodeAt(n);
+            byteStr = aByte.toString(16);
+            if (byteStr.length < 2) {
+                byteStr = "0" + byteStr;
+            }
+            markup.push(byteStr);
+        }
+        bodyAppend("p", label + " (" + result.length + "):");
+        bin_str = markup.join(" ");
+        bodyAppend("pre", markup.join(" "));
+
+
+        for(var i = 0; i < result.length; i += 300){
+            processElement(result.substring(i, i + 300));
+            console.log(result.substring(i,  i + 300))
+        }
+        console.log("done")
+
+        // processQ(markup)
+
+    }
+
+    async function processElement(element) {
+        process(element);
+        await new Promise(r => setTimeout(r, 4000));
+
+    }
+
+    function process(element){
+        var enc = new TextEncoder();
+        return( characteristic.writeValue(enc.encode(element)))
+        .catch(error => {
+            return(process(element))
+      });
+    }
+
+    function bodyAppend(tagName, innerHTML) {
+        var elm;
+
+        elm = document.createElement(tagName);
+        elm.innerHTML = innerHTML;
+        document.body.appendChild(elm);
+    }
+
+</script>
+
+<!-- END TESTING -->
+    <form action='#' onsubmit="return false;">
+    <input type='file' id='fileinput'>
+    <input type='button' id='btnLoad' value='Load' onclick='loadFile();'>
+    </form>
     </body>
 
 </html>
