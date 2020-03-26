@@ -1,8 +1,10 @@
 
 var UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 var characteristic;
-var n = 0
+var idx = 0
 var result;
+var chunks;
+var enc = new TextEncoder();
 
 function log(x) {
     console.log(x)
@@ -41,21 +43,7 @@ function arrayBufferToString(buffer){
     return str;
 }
 
-function handleChange(event) { 
-    // let msg = event.target.value.buffer
-    // console.log(arrayBufferToString(msg));
-    console.log("triggered")
-    if(n > result.length){
-        console.log("done")
-        console.log(result.length)
-        process("1");
-        return
-    }
 
-    console.log("NEW_STR: " + result);
-    process(result.substring(n, n + 100));
-    n += 100;
-}
 
 async function setupButtons(app, textures,pos, to_write) {
 
@@ -84,3 +72,88 @@ async function setupButtons(app, textures,pos, to_write) {
     });
     app.stage.addChild(button)
 }
+
+// BLE-OTA CODE
+
+function loadFile() {
+        var input, file, fr;
+
+        if (typeof window.FileReader !== 'function') {
+            bodyAppend("p", "The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('fileinput');
+        if (!input) {
+            bodyAppend("p", "Um, couldn't find the fileinput element.");
+        }
+        else if (!input.files) {
+            bodyAppend("p", "This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            bodyAppend("p", "Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = receivedText;
+            fr.readAsArrayBuffer(file);
+        }
+
+        function receivedText() {
+            showResult(fr, "Text");
+
+
+        }
+
+ 
+    }
+
+    function handleChange(event) { 
+        // let msg = event.target.value.buffer
+        // console.log(arrayBufferToString(msg));
+        
+        if(idx == chunks.length){
+            console.log("all done!")
+            characteristic.writeValue(enc.encode("done"))
+            return
+        }
+        console.log("sending next: ")
+        var to_write = chunks[idx]
+        console.log(to_write)
+        idx += 1
+        characteristic.writeValue(to_write)
+    }
+
+    function showResult(fr, label) {
+        markup = [];
+        result = fr.result;
+
+        console.log("sending first chunk")
+        chunks = listify(result)
+        characteristic.writeValue(chunks[idx])
+        idx += 1
+
+        
+
+        // processQ(markup)
+
+    }
+    function listify(result) {
+        //split into 512 byte sized chunks
+        l = []
+        var i = 0;
+        while(result.byteLength > 0){
+            var chunk = result.slice(0,512)
+            l.push(enc.encode(i))
+            l.push(enc.encode("|"))
+            result = result.slice(512)
+            i += 1
+        }
+
+        return l
+
+
+
+    }
+    
