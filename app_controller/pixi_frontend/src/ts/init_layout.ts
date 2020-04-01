@@ -1,11 +1,37 @@
-var characteristic;
-var idx = 0
-var result;
-var chunks;
-var enc = new TextEncoder();
+
+class chunk_loader{
+    idx:number;
+    chunks:Array<number>;
+
+    constructor(){
+        this.idx = 0;
+        this.chunks = [];
+    }
+
+    add_chunks(chunks){
+        this.chunks = chunks;
+    }
+
+    next_chunk(){
+        return(this.chunks[this.idx++]);
+    }
+
+    get_idx(){
+        return(this.idx);
+    }
+
+    hasNext(){
+        return(this.idx < this.chunks.length);
+    }
+}
+
+let loader = new chunk_loader();
+let characteristic = null;
 
 function setup(){
+
     var bluetooth_connect_btn = document.createElement("BUTTON");
+    
     bluetooth_connect_btn.innerHTML = "CONNECT";
     bluetooth_connect_btn.onclick = connect_to_device;
     document.body.appendChild(document.createElement("br"));
@@ -56,19 +82,18 @@ function connect_to_device() {
 }
 
 function send_next_bytes(event) { 
-    // let msg = event.target.value.buffer
-    // console.log(arrayBufferToString(msg));
-    
-    if(idx == chunks.length){
+
+    var enc = new TextEncoder();
+
+    if(!loader.hasNext()){
         console.log("all done!")
         characteristic.writeValue(enc.encode("done"))
         return
     }
     console.log("sending next: ")
-    var to_write = chunks[idx]
+    var to_write = loader.next_chunk();
     console.log(to_write)
-    idx += 1
-    let promise = characteristic.writeValue(to_write)
+    characteristic.writeValue(to_write)
 }
 
 function load_file() {
@@ -81,19 +106,20 @@ function load_file() {
     fr.readAsArrayBuffer(file);
 
     function receivedText() {
-        result = fr.result;
-        console.log("sending first chunk")
-        chunks = listify(result)
-        characteristic.writeValue(chunks[idx])
-        idx += 1
+        var result = fr.result;
+        console.log("sending first chunk");
+        loader.add_chunks(listify(result));
+        
+        characteristic.writeValue(loader.next_chunk());
     }
-
-
 }
 
 function listify(result) {
     //split into 512 byte sized chunks
     var l = []
+
+    var enc = new TextEncoder();
+    
     while(result.byteLength > 0){
         var chunk = result.slice(0,512)
         l.push(chunk)
