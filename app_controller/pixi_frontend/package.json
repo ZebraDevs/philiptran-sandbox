@@ -13,7 +13,7 @@
     "url": "git+https://github.com/fetchrobotics/philiptran-sandbox.git"
   },
   "author": "Phillip Tran",
-  "license": "ISC",
+  "license": "BSD",
   "bugs": {
     "url": "https://github.com/fetchrobotics/philiptran-sandbox/issues"
   },
