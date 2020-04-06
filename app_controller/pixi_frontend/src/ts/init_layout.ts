@@ -92,13 +92,11 @@ function send_next_bytes(event) {
     if(!loader.hasNext()){
         console.log("all done!")
         loader.write_chunk(enc.encode("done"))
-        // characteristic.writeValue(enc.encode("done"))
         return
     }
     console.log("sending next: ")
     var to_write = loader.next_chunk();
     console.log(to_write)
-    // characteristic.writeValue(to_write)
     loader.write_chunk(to_write);
 }
 
@@ -113,6 +111,7 @@ function load_file() {
 
     function receivedText() {
         var result = fr.result;
+
         console.log("sending first chunk");
         loader.add_chunks(listify(result));
         
@@ -128,13 +127,22 @@ function listify(result) {
     
     while(result.byteLength > 0){
         var chunk = result.slice(0,512)
-        l.push(chunk)
+
+        // l.push(_appendBuffer(chunk, enc.encode('p')))
+        l.push(chunk);
         l.push(enc.encode("|"))
         result = result.slice(512)
     }
 
     return l
 }
+
+function _appendBuffer(buffer1, buffer2) {
+    var tmp = new Uint8Array(buffer1.byteLength + buffer2.byteLength);
+    tmp.set(new Uint8Array(buffer1), 0);
+    tmp.set(new Uint8Array(buffer2), buffer1.byteLength);
+    return tmp.buffer;
+  };
 
 setup();
 
