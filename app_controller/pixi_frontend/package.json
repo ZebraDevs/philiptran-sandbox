@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install browserify pixi.js",
     "build": "tsc && browserify src/js/src/init_pixi.js -o src/js/bundle/init_pixi.bundle.js",
     "clean": "rm -rf src/js/bundle && rm -f src/js/src/*"
   },
