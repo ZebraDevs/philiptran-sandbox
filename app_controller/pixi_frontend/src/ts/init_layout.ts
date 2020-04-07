@@ -91,6 +91,14 @@ function send_next_bytes(event) {
 
     if(!loader.hasNext()){
         console.log("all done!")
+        var currentdate = new Date(); 
+        var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+        console.log(datetime)
         loader.write_chunk(enc.encode("done"))
         return
     }
@@ -113,6 +121,14 @@ function load_file() {
         var result = fr.result;
 
         console.log("sending first chunk");
+        var currentdate = new Date(); 
+        var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+        console.log(datetime)
         loader.add_chunks(listify(result));
         
         characteristic.writeValue(loader.next_chunk());
@@ -126,13 +142,15 @@ function listify(result) {
     var enc = new TextEncoder();
     
     while(result.byteLength > 0){
-        var chunk = result.slice(0,512)
+        var chunk = result.slice(0,511)
 
-        // l.push(_appendBuffer(chunk, enc.encode('p')))
-        l.push(chunk);
-        l.push(enc.encode("|"))
-        result = result.slice(512)
+        l.push(_appendBuffer(chunk, enc.encode('|')))
+        // l.push(chunk);
+        // l.push(enc.encode("|"))
+        result = result.slice(511)
     }
+
+    l.unshift(enc.encode(l[l.length - 1].byteLength))
 
     return l
 }
