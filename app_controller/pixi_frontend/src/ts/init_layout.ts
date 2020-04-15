@@ -55,20 +55,6 @@ function setup(){
 
     form.appendChild(file_input);
     form.appendChild(load_file_button);
-
-    
-
-    var enc = new TextEncoder();
-    // TODO: Move to pixi
-
-    var button3 = document.createElement("BUTTON");
-
-    button3.innerHTML = "UPDATE";
-    button3.onmousedown = ()=>characteristic.writeValue(enc.encode("UPDATE"));
-    button3.onmouseup = ()=>characteristic.writeValue(enc.encode("STOP"));
-    document.body.appendChild(document.createElement("br"));
-    document.body.appendChild(button3);
-
 }
 
 function connect_to_device() {
