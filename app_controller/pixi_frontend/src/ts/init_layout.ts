@@ -30,12 +30,12 @@ class chunk_loader{
 }
 
 let loader = new chunk_loader();
-let characteristic = null;
+var characteristic = null;
+
 
 function setup(){
 
     var bluetooth_connect_btn = document.createElement("BUTTON");
-    
     bluetooth_connect_btn.innerHTML = "CONNECT";
     bluetooth_connect_btn.onclick = connect_to_device;
     document.body.appendChild(document.createElement("br"));
@@ -56,6 +56,20 @@ function setup(){
 
     form.appendChild(file_input);
     form.appendChild(load_file_button);
+
+    
+
+    var enc = new TextEncoder();
+    // TODO: Move to pixi
+
+    var button3 = document.createElement("BUTTON");
+
+    button3.innerHTML = "UPDATE";
+    button3.onmousedown = ()=>characteristic.writeValue(enc.encode("UPDATE"));
+    button3.onmouseup = ()=>characteristic.writeValue(enc.encode("STOP"));
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(button3);
+
 }
 
 function connect_to_device() {
@@ -82,6 +96,12 @@ function connect_to_device() {
         characteristic.addEventListener('characteristicvaluechanged',
         send_next_bytes);
         console.log(characteristic);
+        let error = document.getElementById("error_msg");
+        error.innerHTML = "Connected successfully! You can now vroom vroom the robot";
+    })
+    .catch( _ => {
+        let error = document.getElementById("error_msg");
+        error.innerHTML = "Failed to connect successfully! Please try again";
     })
 }
 
@@ -151,6 +171,8 @@ function listify(result) {
     }
 
     l.unshift(enc.encode(l[l.length - 1].byteLength))
+
+    console.log("CHUNKS TO WRITE: " + l.length)
 
     return l
 }
