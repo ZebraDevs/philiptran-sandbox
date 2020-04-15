@@ -32,7 +32,6 @@ class chunk_loader{
 let loader = new chunk_loader();
 var characteristic = null;
 
-
 function setup(){
 
     var bluetooth_connect_btn = document.createElement("BUTTON");

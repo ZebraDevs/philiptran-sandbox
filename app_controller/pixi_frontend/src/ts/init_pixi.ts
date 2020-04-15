@@ -9,9 +9,6 @@ function initalize_application(width: number, height: number){
     
     app.renderer.backgroundColor = 0x895044;
     document.body.appendChild(app.view);
-
-
-
     app.loader
         .add([
             "assets/buttons/red_button_pressed.png",
@@ -25,7 +22,6 @@ function initalize_application(width: number, height: number){
 
     return app;
 }
-var app = initalize_application(700, 500);
 
 function setup() {
 
@@ -43,7 +39,9 @@ function setup() {
 }
 
 function init_button(app: PIXI.Application, textures: Array<PIXI.Texture>, pos, value_to_write: string, scale_x:number = .5, scale_y: number = .5, enc: TextEncoder = new TextEncoder()) {
+    
     let button = new PIXI.Sprite(textures[0]);
+    
     button.scale.set(scale_x,scale_y);
     button.position.set(pos.x, pos.y);
     button.interactive = true;
@@ -65,3 +63,5 @@ function init_button(app: PIXI.Application, textures: Array<PIXI.Texture>, pos, 
         })
     app.stage.addChild(button);
 }
+
+var app = initalize_application(700, 500);
