@@ -1,5 +1,4 @@
 import * as PIXI from "pixi.js"
-window.PIXI = PIXI;
 
 function initalize_application(width: number, height: number){
     
@@ -25,11 +24,11 @@ function initalize_application(width: number, height: number){
 
 function setup() {
 
-    let red_button_textures = [app.loader.resources["assets/buttons/red_button_unpressed.png"].texture, app.loader.resources["assets/buttons/red_button_pressed.png"].texture];
+    const red_button_textures = [app.loader.resources["assets/buttons/red_button_unpressed.png"].texture, app.loader.resources["assets/buttons/red_button_pressed.png"].texture];
 
-    let blue_button_textures = [app.loader.resources["assets/buttons/blue_button_unpressed.png"].texture, app.loader.resources["assets/buttons/blue_button_pressed.png"].texture];
+    const blue_button_textures = [app.loader.resources["assets/buttons/blue_button_unpressed.png"].texture, app.loader.resources["assets/buttons/blue_button_pressed.png"].texture];
 
-    let yellow_button_textures = [app.loader.resources["assets/buttons/yellow_button_unpressed.png"].texture, app.loader.resources["assets/buttons/yellow_button_pressed.png"].texture];
+    const yellow_button_textures = [app.loader.resources["assets/buttons/yellow_button_unpressed.png"].texture, app.loader.resources["assets/buttons/yellow_button_pressed.png"].texture];
 
     init_button(app, red_button_textures, {'x':180, 'y':86}, "UP");
     init_button(app, blue_button_textures, {'x':50, 'y':250}, "LEFT");
