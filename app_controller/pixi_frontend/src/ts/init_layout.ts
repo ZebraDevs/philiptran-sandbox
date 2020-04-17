@@ -147,12 +147,12 @@ function listify(result) {
     var enc = new TextEncoder();
     
     while(result.byteLength > 0){
-        var chunk = result.slice(0,511)
+        var chunk = result.slice(0,500)
 
         l.push(_appendBuffer(chunk, enc.encode('|')))
         // l.push(chunk);
         // l.push(enc.encode("|"))
-        result = result.slice(511)
+        result = result.slice(500)
     }
 
     l.unshift(enc.encode(l[l.length - 1].byteLength))
