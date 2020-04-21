@@ -125,6 +125,7 @@ function load_file() {
     function receivedText() {
         var result = fr.result;
 
+        // for printing time sending file took
         console.log("sending first chunk");
         var currentdate = new Date(); 
         var datetime = "Last Sync: " + currentdate.getDate() + "/"
@@ -150,8 +151,7 @@ function listify(result) {
         var chunk = result.slice(0,500)
 
         l.push(_appendBuffer(chunk, enc.encode('|')))
-        // l.push(chunk);
-        // l.push(enc.encode("|"))
+
         result = result.slice(500)
     }
 
