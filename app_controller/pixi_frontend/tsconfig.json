@@ -4,6 +4,7 @@
         "allowJs": true,
         "target": "es5",
         "types": ["pixi.js"],
+        "lib": ["ES2015", "DOM"]
     },
     "include": [
         "./src/ts/*"
