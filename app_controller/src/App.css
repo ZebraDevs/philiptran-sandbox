@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+#button {
+  background: white;
+  border-style: solid;
+  border-color: #31aad6;
+  color:  #31aad6; 
+  padding: 10px;
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 12px;
+  border-radius: 35%;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.flex-container{
+  display:flex;
+  flex-direction: column;
+  width: 10%;
+}
+#item{
+  margin: 5%;
+}
+
+#logo{
+  position: relative;
+  width:20%;
+  height:20%;
+  left:100px;
+  top:100px;
+}

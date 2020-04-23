@@ -10,11 +10,13 @@ class FileHandler {
     private idx:number;
     private chunks:Array<ArrayBuffer>;
     private fileRef: any;
+    private characteristic: any;
 
-    constructor(fileRef: any) {
+    constructor(fileRef: any, characteristic: any) {
         this.idx = 0;
         this.chunks = [];
         this.fileRef = fileRef;
+        this.characteristic = characteristic;
     }
 
     set(chunks:Array<ArrayBuffer>) {
@@ -40,27 +42,19 @@ class FileHandler {
         let file = input.files[0];
         let fr = new FileReader(); 
 
-        const processLoadedText = () => {
+        const processLoadedText = async () => {
             let result = fr.result as ArrayBuffer; 
-            console.log("sending first chunk!"); 
-
-            // TEST VARS TO SEE HOW LONG PROCESSS TOOK! 
-
-            var currentdate = new Date(); 
-            var datetime = "Last Sync: " + currentdate.getDate() + "/"
-                    + (currentdate.getMonth()+1)  + "/" 
-                    + currentdate.getFullYear() + " @ "  
-                    + currentdate.getHours() + ":"  
-                    + currentdate.getMinutes() + ":" 
-                    + currentdate.getSeconds();
-            console.log(datetime)
 
             if(result)
             {
                 this.chunks = split(result);
-                console.log(this.chunks);
+                
+                for(var i = 0; i < this.chunks.length; i++) {
+                    await this.characteristic.writeValue(this.chunks[i]);
+                }
+                let enc = new TextEncoder();
+                await this.characteristic.writeValue(enc.encode("done"))
             }
-
         }
 
         fr.onload = processLoadedText.bind(this); 
@@ -79,22 +73,31 @@ class BluetoothHandler extends React.Component {
         super(props); 
         this.characteristic = null;
         this.fileRef = React.createRef();
-        this.fileHandler = new FileHandler(this.fileRef);
+        this.fileHandler = new FileHandler(this.fileRef, this.characteristic);
     }
 
     render() {
         return ( 
             <>
-            <button onClick = {this.connectToDevice.bind(this)}> Connnect </button> 
-            <input type="file" ref={this.fileRef}></input>
-            <button onClick={this.fileHandler.loadFile.bind(this)}> Upload </button>
+            <div className="flex-container">
+                <div id ="item">
+                    <button id="button" onClick = {this.connectToDevice.bind(this)}> Connnect </button> 
+                </div>
+                <div id = "item">
+                    <button id="button" onClick={this.fileHandler.loadFile.bind(this)}> Upload </button>
+                </div>
+                <div id = "item">
+                    <input type="file" ref={this.fileRef}></input>
+                </div>
+                
+            </div>
             </>
         );
     }
 
     connectToDevice() {
         let navigator: any = window.navigator
-        var UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+        var UUID = "8601cf7e-8291-4cb7-baef-cf570c53485f";
         navigator.bluetooth.requestDevice({acceptAllDevices:true,optionalServices: [UUID]})
         .then((device: { gatt: { connect: () => any; }; }) => {
             console.log('Connecting to GATT Server...');
@@ -106,16 +109,13 @@ class BluetoothHandler extends React.Component {
         })
         .then((service: { getCharacteristic: (arg0: string) => any; }) => {
             console.log("Getting characteristics");
-            return service.getCharacteristic('beb5483e-36e1-4688-b7f5-ea07361b26a8');
+            return service.getCharacteristic('f2aec022-00ac-44b4-8158-07c48d2024c1');
         })
         .then((_characteristic: any) => {
             console.log("getting characteristic");
             this.characteristic = _characteristic;
-            // this._characteristic.addEventListener('characteristicvaluechanged',
-            // send_next_bytes);
             console.log(this.characteristic);
 
-            this.characteristic.startNotifications();
         })
     }
 
@@ -128,14 +128,14 @@ class BluetoothHandler extends React.Component {
 
 function split(result:ArrayBuffer){
 
-    let chunkSize = 511; // save 1 byte for our delimiter (max bytes is 512)
+    let chunkSize = 500; // save 1 byte for our delimiter (max bytes is 512)
     let splitList = []; 
     let enc = new TextEncoder(); // used to encode our delimiters 
 
     while(result.byteLength > 0) {
         var chunk = result.slice(0, chunkSize);
         splitList.push(appendBuffer(chunk, enc.encode('|')));
-        result = result.slice(511);
+        result = result.slice(chunkSize);
     }
 
     // send over the bytelength of the final chunk to send to C side so it knows when 
