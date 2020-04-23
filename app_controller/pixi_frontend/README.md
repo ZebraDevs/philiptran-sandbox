@@ -20,3 +20,7 @@ If running on a localhost rather than a server, make sure you allow file access 
 ```
 google-chrome --allow-file-access-from-files
 ```
+
+# Updating the flash 
+First make sure that the BLE_OTA code is being ran and you see 'waiting' on your terminal. 
+Then choose a .bin file to upload then hit the upload button! 
