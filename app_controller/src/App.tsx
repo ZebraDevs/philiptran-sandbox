@@ -5,7 +5,6 @@ import BluetoothHandler from "./components/bluetoothHandler";
 
 
 function App() {
-  let app = new PIXIApp(500,500); 
 
   return ( 
     <>
@@ -14,6 +13,7 @@ function App() {
     </head>
     <body>
         < BluetoothHandler />
+        < PIXIApp />
     </body>
     </>
   );

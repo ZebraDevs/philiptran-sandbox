@@ -37,7 +37,7 @@ class FileHandler {
     }
 
     loadFile() {
-        // load the file stored in the 'input' element of BluetoothHandler
+        // load the file stored in the 'input' element of BluetoothHandler and send it
         let input = this.fileRef.current;
         let file = input.files[0];
         let fr = new FileReader(); 
@@ -126,6 +126,9 @@ class BluetoothHandler extends React.Component {
 
 }
 
+
+// helper functions
+// TODO: move to non-class specific file
 function split(result:ArrayBuffer){
 
     let chunkSize = 500; // save 1 byte for our delimiter (max bytes is 512)
