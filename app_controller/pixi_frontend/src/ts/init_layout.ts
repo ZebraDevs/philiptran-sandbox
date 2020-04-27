@@ -139,7 +139,9 @@ function load_file() {
             await characteristic.writeValue(res[i])
             let d4 = new Date();
             console.log("Took: " + ((d4.getTime() - d3.getTime())) )
+            await new Promise(r => setTimeout(r, 5));
         }
+        console.log("are we out?")
         let enc = new TextEncoder();
         await characteristic.writeValue(enc.encode("done"))
         d2 = new Date();
