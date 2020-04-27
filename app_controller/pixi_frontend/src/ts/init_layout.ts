@@ -95,6 +95,7 @@ function connect_to_device() {
     })
 }
 
+// Timing globals. TODO: remove or comment out
 var d1;
 var d2;
 
@@ -117,6 +118,7 @@ async function send_next_bytes(event) {
     await loader.write_chunk(to_write);
 }
 
+//TODO: remove timing stuff
 function load_file() {
     var input, file, fr;
 
@@ -139,7 +141,7 @@ function load_file() {
             await characteristic.writeValue(res[i])
             let d4 = new Date();
             console.log("Took: " + ((d4.getTime() - d3.getTime())) )
-            await new Promise(r => setTimeout(r, 5));
+            await new Promise(r => setTimeout(r, 5)); //in ms
         }
         console.log("are we out?")
         let enc = new TextEncoder();
