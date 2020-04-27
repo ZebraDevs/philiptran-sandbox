@@ -104,7 +104,7 @@ async function send_next_bytes(event) {
     var enc = new TextEncoder();
 
     if(!loader.hasNext()){
-        console.log("all done!")
+        alert("all done!")
         
         loader.write_chunk(enc.encode("done"))
         d2 = new Date() 
@@ -163,11 +163,8 @@ function listify(result) {
     var enc = new TextEncoder();
     
     while(result.byteLength > 0){
-        var chunk = result.slice(0,500)
-
-        l.push(_appendBuffer(chunk, enc.encode('|')))
-
         result = result.slice(500)
+        l.push(_appendBuffer(result, enc.encode('|')))
     }
 
     l.unshift(enc.encode(l[l.length - 1].byteLength))

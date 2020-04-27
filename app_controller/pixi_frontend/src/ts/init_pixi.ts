@@ -47,7 +47,7 @@ function init_button(app: PIXI.Application, textures: Array<PIXI.Texture>, pos, 
     button
         .on('mousedown', function() {
             if(characteristic == undefined){
-                console.log("connect to bluetooth first");
+                alert("connect to bluetooth first");
                 return;
             }
             button.texture = textures[1];
