@@ -3,8 +3,8 @@
         "outDir": "./src/js/src",
         "allowJs": true,
         "target": "es5",
-        "types": ["pixi.js"],
-        "lib": ["ES2015", "DOM"]
+	"lib": ["es2015", 
+']
     },
     "include": [
         "./src/ts/*"
