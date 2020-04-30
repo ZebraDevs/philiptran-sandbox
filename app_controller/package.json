@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@inlet/react-pixi": "^1.2.18",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,10 +12,12 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "@types/react-native": "^0.62.2",
-    "pixi.js": "^5.2.1",
+    "nipplejs": "^0.8.5",
+    "pixi.js": "^5.2.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-native": "^0.62.2",
+    "react-nipple": "^1.0.2",
     "react-scripts": "3.4.1",
     "typescript": "^3.7.5"
   },
