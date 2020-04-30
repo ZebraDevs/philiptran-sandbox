@@ -52,7 +52,7 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
         
     }
 
-    updateVerticleButtonPosition(newY:number, newDir: string){
+    updateMoveButtonPosition(newY:number, newDir: string){
 
         if((this.state.isMovingVert && newDir != this.state.dir)){
             this.sendDirectionCommand(newDir);
@@ -104,7 +104,7 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
                 y={195} 
                 isMoving={this.state.isMovingVert}
                 setStatus={this.setVertMovingStatus.bind(this) }
-                updatePosition={this.updateVerticleButtonPosition.bind(this) }
+                updatePosition={this.updateMoveButtonPosition.bind(this) }
                 updatedY = {this.state.moveButtonY}
             />
             </>
