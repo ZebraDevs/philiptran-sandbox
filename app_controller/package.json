@@ -1,0 +1,45 @@
+{
+  "name": "app_controller",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@inlet/react-pixi": "^1.2.18",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.36",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-native": "^0.62.2",
+    "nipplejs": "^0.8.5",
+    "pixi.js": "^5.2.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-native": "^0.62.2",
+    "react-nipple": "^1.0.2",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
