@@ -35,9 +35,9 @@ class RotateButton extends React.Component<RotateButtonProps>{
     moveButton(event:any){
         if(this.props.isMoving)
         {
-            let newX:number = event.data.global.x;
-            let newY:number = event.data.global.y;
-            let movementdir: string = "STOP";
+            let newX:number = event.data.global.x - 100;
+            let newY:number = event.data.global.y - 100;
+            let movementdir: number = 48;
             let maxThreshholdX:number = (this.props.x - ((this.outerRingProps.width / 2) - (this.innerButtonProps.width/2) ) + this.outerRingProps.width)
             let minThreshholdX:number = (this.props.x - ((this.outerRingProps.width / 2) - (this.innerButtonProps.width/2) ));
             let maxThreshholdY:number = (this.props.stageHeight/2) - (this.innerCircleProps.height /2) + this.innerCircleProps.height;
@@ -58,9 +58,11 @@ class RotateButton extends React.Component<RotateButtonProps>{
                 newY = (this.props.stageHeight/2) - (this.innerCircleProps.height);
             }
 
-            movementdir = newX > this.innerButtonProps.width/2 ? "RIGHT" : "LEFT";
+            movementdir = newX + (this.innerButtonProps.width / 2) > this.outerRingProps.width/2 ? 51 : 50;
+            let intensity = Math.abs((this.outerRingProps.width/2) - (newX + (this.innerButtonProps.width / 2) )) / (this.outerRingProps.width/2);
+            intensity = Math.min(intensity, .99);
             
-            this.props.updatePosition(newX, newY, movementdir);
+            this.props.updatePosition(newX, newY, movementdir, intensity);
         }
         
     }
@@ -70,7 +72,7 @@ class RotateButton extends React.Component<RotateButtonProps>{
     }
 
     endingMovement(){
-        this.props.updatePosition(this.props.x,(this.props.stageHeight/2) - (this.innerButtonProps.height /2), "STOP");
+        this.props.updatePosition(this.props.x,(this.props.stageHeight/2) - (this.innerButtonProps.height /2), 48);
         this.props.updateMovementStatus(false);
     }
     

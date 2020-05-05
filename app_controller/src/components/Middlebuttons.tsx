@@ -13,6 +13,8 @@ class MiddleArea extends React.Component<middleAreaProps>{
         width: 316,
         height:181
     }
+
+    
     render(){
         return(<Sprite image={MiddleAreaImage} {...this.propss} x={this.props.x} y={this.props.y}/>);
     }

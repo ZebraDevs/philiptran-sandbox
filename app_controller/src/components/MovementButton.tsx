@@ -30,23 +30,32 @@ class MovementButton extends React.Component<MovementButtonProps>{
     }
 
     moveButton(event: any){
-        let newY:number = event.data.global.y;
+        let newY:number = event.data.global.y - 50 ;
         let yDifference:number = (this.movementButtonOuterRingProp.height / 2) - (this.movementButtonProps.height/2);
 
-        if(newY + this.movementButtonProps.height  > (this.props.y - yDifference) + this.movementButtonOuterRingProp.height ){
-            newY = (this.props.y - yDifference) + this.movementButtonOuterRingProp.height  - this.movementButtonProps.height;
-        }
-        else if(newY < (this.props.y - yDifference)){
-            newY = (this.props.y - yDifference);
-        }
-
         if(this.props.isMoving){
-            this.props.updatePosition( newY, "UP");
+
+            if(newY + this.movementButtonProps.height  > (this.props.y - yDifference) + this.movementButtonOuterRingProp.height ){
+                newY = (this.props.y - yDifference) + this.movementButtonOuterRingProp.height  - this.movementButtonProps.height;
+            }
+            else if(newY < (this.props.y - yDifference)){
+                newY = (this.props.y - yDifference);
+            }
+    
+            let intensity = Math.abs((this.movementButtonOuterRingProp.height/2) - (newY - (this.movementButtonProps.width / 2) )) / (this.movementButtonOuterRingProp.height/2);
+            intensity = Math.min(intensity, .99);
+            if(newY - 30 <  (this.movementButtonOuterRingProp.height/2)  ){
+                this.props.updatePosition( newY, "U", intensity);
+            }
+            else
+            {
+                this.props.updatePosition( newY, "DOWN", intensity);
+            }
         }
     }
 
     stopMovement(){
-        this.props.updatePosition( this.props.y, "STOP");
+        this.props.updatePosition( this.props.y, 48, 0);
         this.props.setStatus(false);
     }
 

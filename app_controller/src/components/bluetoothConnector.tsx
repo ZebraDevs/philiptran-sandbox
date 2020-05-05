@@ -39,7 +39,7 @@ class BluetoothConnector extends React.Component<BluetoothConnectorProps>{
     }
 
     render(){
-         return(<Sprite image={ConnectButton} {...this.buttonProps}  x={this.props.x} y={this.props.y} interactive={true} click={this.connectToDevice} />);
+         return(<Sprite image={ConnectButton} {...this.buttonProps}  x={this.props.x} y={this.props.y} interactive={true} click={this.connectToDevice.bind(this)} />);
     }
 }
 

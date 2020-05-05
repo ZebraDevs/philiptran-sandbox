@@ -20,7 +20,7 @@ type ControllerState = {
     isMovingHorz: boolean,
     isMovingVert:boolean
 
-    dir: string ,  
+    dir: number ,  
     moveButtonY: number | undefined, // Y position of our Move button
 }
 
@@ -33,17 +33,13 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
             rotateButtonY: undefined,
             isMovingHorz: false,
             isMovingVert: false,
-            dir: "STOP",
+            dir: 48,
             moveButtonY: undefined
         }
     }
 
-    updateRotateButtonPosition(newX:number, newY:number, newDir: string){
-
-        if( (this.state.isMovingHorz && newDir !== this.state.dir) ){
-            this.sendDirectionCommand(newDir);
-        }
-
+    updateRotateButtonPosition(newX:number, newY:number, newDir: number, intensity:number){
+        this.sendDirectionCommand(newDir, intensity);
         this.setState({
             rotateButtonX: newX,
             rotateButtonY: newY,
@@ -52,12 +48,9 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
         
     }
 
-    updateMoveButtonPosition(newY:number, newDir: string){
+    updateMoveButtonPosition(newY:number, newDir: number, intensity: number){
 
-        if((this.state.isMovingVert && newDir !== this.state.dir)){
-            this.sendDirectionCommand(newDir);
-        }
-
+        this.sendDirectionCommand(newDir, intensity);
         this.setState({
             moveButtonY: newY,
             dir: newDir
@@ -65,10 +58,10 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
         
     }
 
-    sendDirectionCommand(newDir:string){
+    sendDirectionCommand(newDir:number, intensity: number){
         console.log("writing new direction: " + newDir)
         let enc:TextEncoder = new TextEncoder();
-        this.props.writeBLE(enc.encode(newDir));
+        this.props.writeBLE(enc.encode(""+(newDir + intensity)));
     }
 
     setHorzMovingStatus(newStatus:boolean){
